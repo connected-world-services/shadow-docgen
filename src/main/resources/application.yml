@@ -1,0 +1,25 @@
+server.port: 8585
+
+logging.file: "C:/Temp/1/docgen-audit"
+#logging.path: "C:/Temp/1"
+
+docgen:
+  version: 3.3.1
+  endpoints:
+    #appengine: http://test.dnb.cwscloud.net:6050/api
+    appengine: http://localhost:8484/api
+  template:
+    html.location: classpath:html/template.html
+    html.images.folder: classpath:html/images
+  http:
+    max.connections: 100
+    max.connections.per.route: 20
+    connection.timetolive.millis: 5000
+    request.connection.timeout.millis: 1000
+    connect.timeout.millis: 1000
+
+#ssl:
+#  port: 8443
+#  key-store: "keystore.jks"
+#  key-store-password: secret
+#  key-password: password
