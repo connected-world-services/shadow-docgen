@@ -47,6 +47,7 @@ Endpoints (based on default settings)
 ----------------------------------
 * Reference Data by Locale - <http://localhost:8585/document/{cwsRef}>
 * Swagger - <http://localhost:8585/swagger-ui.html>
+
 Configuration
 ----------------------------------
 
