@@ -6,7 +6,7 @@
 
     <groupId>com.connectedworldservices</groupId>
     <artifactId>docgen-service</artifactId>
-    <version>0.1-${buildNumber}</version>
+    <version>3.3.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Document Generation Service</name>
 
@@ -20,7 +20,6 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <buildNumber>SNAPSHOT</buildNumber>
         <sonar.jacoco.itReportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.itReportPath>
     </properties>
 
