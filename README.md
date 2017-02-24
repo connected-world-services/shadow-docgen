@@ -15,7 +15,7 @@ Maven Build
 ------------
 
 ```bash
-    git clone git@gitlab.cwscloud.net:shadow/doc-gen-service.git
+    git clone https://github.com/connected-world-services/shadow-docgen.git
     mvn clean install
 ```
 
@@ -54,7 +54,7 @@ Configuration
 |                Property                 |                 Description                 |                 Default Value                  |  
 | --------------------------------------- | ------------------------------------------- | ---------------------------------------------- |  
 | server.port | The port for the microservice to listen on | 8585 |  
-| docgen.endpoints.appengine | The url for appengine hal api | http://test.dnb.cwscloud.net:6050/api |
+| docgen.endpoints.appengine | The url for appengine hal api | should be configured |
 | docgen.template.html.location | Path to location of the html template file. | classpath:html/template.html |
 | docgen.html.images.folder     | Path to the location of the folder that contains the images referenced in html template | classpath:html/images |
 | docgen.http.max.connections | Defaults to 100  | DOCGEN |
