@@ -24,6 +24,8 @@
     </properties>
     <scm>
         <url>https://github.com/connected-world-services/shadow-docgen.git</url>
+        <connection>scm:git:git://github.com/connected-world-services/shadow-docgen.git</connection>
+        <developerConnection>scm:git:git@github.com:connected-world-services/shadow-docgen.git</developerConnection>
     </scm>
     <dependencies>
         <dependency>
