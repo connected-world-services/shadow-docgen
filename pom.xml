@@ -6,7 +6,7 @@
 
     <groupId>com.connectedworldservices</groupId>
     <artifactId>docgen-service</artifactId>
-    <version>3.3.2-SNAPSHOT</version>
+    <version>3.3.3-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Document Generation Service</name>
 
