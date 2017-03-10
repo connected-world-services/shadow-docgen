@@ -4,7 +4,7 @@ logging.file: "C:/Temp/1/docgen-audit"
 #logging.path: "C:/Temp/1"
 
 docgen:
-  version: 3.3.1
+  version: 3.3.2
   endpoints:
     #appengine: http://test.dnb.cwscloud.net:6050/api
     appengine: http://localhost:8484/api
