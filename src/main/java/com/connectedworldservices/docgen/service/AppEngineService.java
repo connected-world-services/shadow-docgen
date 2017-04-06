@@ -22,7 +22,7 @@ public class AppEngineService {
     @Value("${docgen.endpoints.appengine}")
     String appengineUrl;
     private static final String APPLICATION_STATE_SERVICE_NAME = "application-state";
-    private static final String CWF_REF_PLACEHOLDER = "{cws-ref}";
+    private static final String CWS_REF_PLACEHOLDER = "{cws-ref}";
     private static final String SERVICE_JSON_PATH = "_links.service";
     private static final String NAME = "name";
     private static final String HREF = "href";
@@ -34,8 +34,14 @@ public class AppEngineService {
     public Map<String, Object> getState(String cwsRef) {
         Map headers = Collections.emptyMap();
         Map<String, Object> applicationStateService = getApplicationStateService();
-        String url = ((String) applicationStateService.get(HREF)).replace(CWF_REF_PLACEHOLDER, cwsRef);
+        String url = ((String) applicationStateService.get(HREF)).replace(CWS_REF_PLACEHOLDER, cwsRef);
         return httpService.executeGet(url, headers, Map.class);
+    }
+
+
+    public Map<String,Object> getResourceState(String cwsRef, String businessFeatureName, String resourceName) {
+        String url = new StringBuilder(appengineUrl).append("/").append(cwsRef).append("/").append(businessFeatureName).append("/").append(resourceName).toString();
+        return httpService.executeGet(url, Collections.emptyMap(), Map.class);
     }
 
 

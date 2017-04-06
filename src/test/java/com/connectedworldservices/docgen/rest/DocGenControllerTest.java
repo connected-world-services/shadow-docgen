@@ -132,6 +132,29 @@ public class DocGenControllerTest{
         }
     }
 
+    @Test
+    public void testGetDocumentForResourcePositiveScenario() {
+        givenThat(get(urlEqualTo("/api"))
+                .willReturn(
+                        aResponse().withStatus(200)
+                                .withHeader("Content-Type", "application/json")
+                                .withBody(MockResponses.WITH_STATE_SERVICE)));
+
+        givenThat(get(urlEqualTo("/api/123/new-connection/docgen"))
+                .willReturn(
+                        aResponse().withStatus(200)
+                                .withHeader("Content-Type", "application/json")
+                                .withBody(MockResponses.STATE_DATA)));
+        try {
+            HeaderSettingRequestCallback requestCallback = new HeaderSettingRequestCallback();
+            ClientHttpResponse res = REST_TEMPLATE.execute(uriBuilder("123/new-connection/docgen"), HttpMethod.GET, requestCallback, response -> response);
+            File targetFile = new File("target/responseUsingResource.pdf");
+            FileUtils.copyInputStreamToFile(res.getBody(), targetFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+    }
 
     @Test
     public void testToHtml() throws IOException {
