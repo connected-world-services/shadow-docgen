@@ -52,6 +52,23 @@ public class DocGenController {
         }
     }
 
+    @RequestMapping(value = "/document/{cwsRef}/{businessFeatureName}/{resourceName}", method = RequestMethod.GET, produces = {"application/pdf"})
+    public ResponseEntity<InputStreamResource> document(@PathVariable String cwsRef, @PathVariable String businessFeatureName, @PathVariable String resourceName)  {
+        try {
+            LoggerUtils.auditInfo(log, "request", cwsRef, ()-> "");
+            String html = templateResolver.toHtml(appEngine.getResourceState(cwsRef, businessFeatureName, resourceName));
+            InputStream document = pdfGenerator.generatePdfFromHtmlWithImages(html);
+            LoggerUtils.auditInfo(log, "response", cwsRef, ()-> "Document Generated");
+            return ResponseEntity.ok()
+                    .headers(httpHeaders())
+                    .body(new InputStreamResource(document));
+        } catch (ResponseException ex) {
+            LoggerUtils.auditError(log, "exception", cwsRef, () -> ex.getMessage());
+            return new ResponseEntity<>(ex.getHttpStatus());
+        }
+    }
+
+
     @RequestMapping(value = "/document/{cwsRef}", method = RequestMethod.GET, produces = {"application/pdf"})
     public ResponseEntity<InputStreamResource> document(@PathVariable String cwsRef)  {
         try {
@@ -67,7 +84,6 @@ public class DocGenController {
             return new ResponseEntity<>(ex.getHttpStatus());
         }
     }
-
     private HttpHeaders httpHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
