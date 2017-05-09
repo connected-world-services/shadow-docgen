@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.connectedworldservices</groupId>
     <artifactId>docgen-service</artifactId>
-    <version>3.3.5-SNAPSHOT</version>
+    <version>3.3.4-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Document Generation Service</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.1.RELEASE</version>
+        <version>1.5.2.RELEASE</version>
+
     </parent>
 
     <properties>
@@ -19,6 +22,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <sonar.jacoco.itReportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.itReportPath>
+        <!-- Build dependency artifact versions -->
+        <commons-io.version>2.5</commons-io.version>
+        <freemarker.version>2.3.25-incubating</freemarker.version>
+        <httpclient.version>4.5.2</httpclient.version>
+        <itextpdf.version>5.5.9</itextpdf.version>
+        <janino.version>2.7.8</janino.version>
+        <json-path.version>2.2.0</json-path.version>
+        <json-smart.version>2.2.1</json-smart.version>
+        <lombok.version>1.16.6</lombok.version>
+        <org.eclipse.jgit.version>4.7.0.201704051617-r</org.eclipse.jgit.version>
+        <springfox-swagger2.version>2.2.2</springfox-swagger2.version>
+        <xmlworker.version>5.5.9</xmlworker.version>
+        <!-- Test dependency artifact versions -->
+        <awaitility.version>1.7.0</awaitility.version>
+        <mockito-all.version>1.10.19</mockito-all.version>
+        <org.eclipse.jgit.junit.version>4.1.1.201511131810-r</org.eclipse.jgit.junit.version>
+        <wiremock.version>1.57</wiremock.version>
     </properties>
     <scm>
         <url>https://github.com/connected-world-services/shadow-docgen.git</url>
@@ -58,17 +78,17 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.6</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>2.3.25-incubating</version>
+            <version>${freemarker.version}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.2.2</version>
+            <version>${springfox-swagger2.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -80,7 +100,7 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.2.2</version>
+            <version>${springfox-swagger2.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -92,73 +112,68 @@
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itextpdf</artifactId>
-            <version>5.5.9</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.2</version>
+            <version>${itextpdf.version}</version>
         </dependency>
         <dependency>
             <groupId>com.itextpdf.tool</groupId>
             <artifactId>xmlworker</artifactId>
-            <version>5.5.9</version>
+            <version>${xmlworker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.1</version>
+            <version>${httpclient.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
-            <version>2.7.8</version>
+            <version>${janino.version}</version>
         </dependency>
         <dependency>
             <groupId>net.minidev</groupId>
             <artifactId>json-smart</artifactId>
-            <version>2.1.1</version>
+            <version>${json-smart.version}</version>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
-            <version>2.0.0</version>
+            <version>${json-path.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>1.10.19</version>
+            <version>${mockito-all.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- Core Library -->
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
             <artifactId>org.eclipse.jgit</artifactId>
-            <version>4.1.1.201511131810-r</version>
+            <version>${org.eclipse.jgit.version}</version>
         </dependency>
         <!-- JUnit Test Support -->
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
             <artifactId>org.eclipse.jgit.junit</artifactId>
-            <version>4.1.1.201511131810-r</version>
+            <version>${org.eclipse.jgit.junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.jayway.awaitility</groupId>
             <artifactId>awaitility</artifactId>
-            <version>1.7.0</version>
+            <version>${awaitility.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock</artifactId>
-            <version>1.57</version>
+            <version>${wiremock.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>${commons-io.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

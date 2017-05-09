@@ -1,6 +1,5 @@
 package com.connectedworldservices.docgen.config;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.jetty.server.NetworkTrafficServerConnector;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.springframework.beans.factory.annotation.Value;
