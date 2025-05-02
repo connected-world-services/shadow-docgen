@@ -29,7 +29,7 @@
         <itextpdf.version>5.5.9</itextpdf.version>
         <janino.version>2.7.8</janino.version>
         <json-path.version>2.2.0</json-path.version>
-        <json-smart.version>2.2.1</json-smart.version>
+        <json-smart.version>2.4.9</json-smart.version>
         <lombok.version>1.16.6</lombok.version>
         <org.eclipse.jgit.version>4.7.0.201704051617-r</org.eclipse.jgit.version>
         <springfox-swagger2.version>2.2.2</springfox-swagger2.version>
